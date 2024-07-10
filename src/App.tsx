@@ -1,9 +1,22 @@
+import { Route, Routes } from "react-router-dom"
+import HomePage from "./pages/HomePage"
+import AboutPage from "./pages/AboutPage"
+import BlogsPage from "./pages/BlogsPage"
+import BlogPage from "./pages/BlogPage"
+import NotFoundPage from "./pages/NotFoundPage"
+
 export default function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
 
-      <button className="btn">Button</button>
-    </div>
+      {/* Blogs Page */}
+      <Route path="/blogs" element={<BlogsPage />} />
+      <Route path="/blogs/:id" element={<BlogPage />} />
+
+      {/* Not Found Page */}
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
   )
 }
